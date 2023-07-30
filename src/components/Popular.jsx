@@ -11,20 +11,20 @@ const Popular = () => {
   }, []);
 
   const getPopular = async () => {
-    const check = localStorage.getItem("popular");
-    if (check) {
-      setPopular(JSON.parse(check));
-    } else {
+    // const check = localStorage.getItem("popular");
+    // if (check) {
+    //   setPopular(JSON.parse(check));
+    // } else {
       const api = await fetch(
-        `https://api.spoonacular.com/recipes/random?apiKey=337a49691f70489ba992a090c19ff28d&number=9`
+        `https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_KEY_API}&number=9`
       );
 
       const data = await api.json();
       localStorage.setItem("popular", JSON.stringify(data.recipes));
       setPopular(data.recipes);
-      console.log(data.recipes);
-    }
-  };
+      // console.log(data.recipes);
+    };
+  // };
   return (
     <div>
       <Wrapper>

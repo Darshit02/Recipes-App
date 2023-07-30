@@ -15,15 +15,14 @@ const Vagee = () => {
 // if(check){
 //   setVeggie(JSON.parse(check))
 // }
-// else{
+// else{`
     const api = await fetch(
-      `https://api.spoonacular.com/recipes/random?apiKey=337a49691f70489ba992a090c19ff28d&number=9&tags=vegetarian`
+      `https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_KEY_API}&number=9&tags=vegetarian`
     );
 
     const data = await api.json();
     // localStorage.setItem('veggie',JSON.stringify(data.recipes))
     setVeggie(data.recipes);
-    console.log(data.recipes);
 // }
   };
   return (
